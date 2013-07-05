@@ -1,0 +1,31 @@
+1.4
+- New effect, RGB Split.
+- New effect, Sharpen.
+
+1.3.4
+- Fixed a bug with Unity 4.1 preventing most shaders to work correctly.
+
+1.3.2
+- Double vision: fixed a brightness related bug.
+- Double vision: added a new slider to fade the effect.
+- Levels: fixed a null pointer exception that could happen in the Editor.
+
+1.3.1
+- Code cleaning.
+- Performance improvements.
+
+1.3
+- Now compatible with Unity 4 and DirectX 11.
+- Small bug fixes.
+
+1.2
+- New effect, Analog TV, emulates a CRT screen with scanlines, static noise and barrel distortion !
+- New effect, Double Vision.
+- New effect, Frost, that looks like viewing through an ice-frosted glass (can be used as a vignette too, to "freeze" the screen progressively).
+
+1.1
+- Photo Filter now takes a Color as input instead of three floats.
+- New effect, Radial Blur, also known as "Zoom" Blur !
+
+1.0
+- Initial release.
