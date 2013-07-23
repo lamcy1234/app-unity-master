@@ -21,19 +21,17 @@ public class ChairNavContainerController : MonoBehaviour {
 		GUIEventController.deregisterEventHandler(GUIEventController.EventName.HMSaylPressed, handleHMSaylPressed);
 	}
 	
-	void Start() {
-		// Retina
-		if (AppGUISettings.IS_RETINA) {
-			//handleRetina();
-		}
-		if (buttons.Length > 0) {
+	void Start() {		
+		
+		if (buttons.Length > 0) 
+		{
+			handleRetina();
 			setupRightMenu();
 			setCurrentProductActive();
 		}
 		
 	}
 	
-
 	private void handleHMEmbody1Pressed ()
 	{
 		loadProduct(0);
@@ -67,7 +65,10 @@ public class ChairNavContainerController : MonoBehaviour {
 	
 	private void setupRightMenu()
 	{
-		int gap = 10;
+		int gap = 5;
+		if (AppGUISettings.IS_RETINA) {
+			gap *= 2;
+		}
 		float screenH = (buttons[0].GetComponent<BoxCollider>().size.y + gap) * buttons.Length;
 		float div = screenH / buttons.Length;
 		float halfScreen = screenH / 2;
@@ -86,5 +87,21 @@ public class ChairNavContainerController : MonoBehaviour {
 		go.GetComponent<UICheckbox>().startsChecked = true;
 	}
 	
+	private void handleRetina ()
+	{
+		if (AppGUISettings.IS_RETINA) {
+			for (int i = 0; i < buttons.Length; i++) 
+			{
+				BoxCollider bc = buttons[i].GetComponent<BoxCollider>();
+				bc.size = new Vector3(bc.size.x * 2, bc.size.y * 2, bc.size.z);
+				
+				foreach (GameObject go in buttons[i].Children())
+				{
+					go.transform.localScale = new Vector3 (go.transform.localScale.x * 2, go.transform.localScale.y * 2, go.transform.localScale.z);
+					go.GetComponent<UIWidget>().MakePixelPerfect();
+				}
+			}
+		}
+	}
 	
 }
