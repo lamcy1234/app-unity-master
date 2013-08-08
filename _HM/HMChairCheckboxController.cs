@@ -2,7 +2,6 @@ using UnityEngine;
 using System;
 using System.Collections;
 
-
 public class HMChairCheckboxController : MonoBehaviour {
 	public UITexture CheckboxTexture;
 	public UILabel ItemLabel;
@@ -19,7 +18,7 @@ public class HMChairCheckboxController : MonoBehaviour {
 		ItemLabel.text = product.name;
 	}
 	
-	public void loadContent() {
+	public void loadCheckBoxTexture() {
 		Texture2D Tex = new Texture2D(4, 4, TextureFormat.RGB24, false);
 		StartCoroutine(HttpLoadTexture(TextureUrl, Tex, () => {
 			CheckboxTexture.mainTexture = Tex;
@@ -46,6 +45,6 @@ public class HMChairCheckboxController : MonoBehaviour {
 	
 	void OnClick()
 	{
-		SayduckARViewController.Instance.loadProduct(this.ProductId);
+		SayduckARViewController.Instance.displayProductModel(this.ProductId);
 	}
 }

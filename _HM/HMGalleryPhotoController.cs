@@ -17,7 +17,7 @@ public class HMGalleryPhotoController : MonoBehaviour {
 	
 	void OnClick()
 	{
-		Debug.Log (productImageUrl);
+		//Debug.Log (productImageUrl);
 		//HMAboutSubviewController.Instance.photos.IndexOf(productImageUrl)
 		HMAboutSubviewController.Instance.selectPhoto(productImageUrl);
 		GUIEventController.UIEventTriggered(GUIEventController.EventName.HMOpenGalleryPressed);
@@ -59,5 +59,4 @@ public class HMGalleryPhotoController : MonoBehaviour {
 			widget.transform.localScale = new Vector3 (widget.transform.localScale.x*2, widget.transform.localScale.y*2, widget.transform.localScale.z);
 		}
 	}
-
 }

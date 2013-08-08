@@ -10,7 +10,7 @@ public class ChairNavContainerController : MonoBehaviour {
 	{
 		products = SayduckARViewController.Instance.getProductList();
 		
-		setupRightMenu();
+		setupChairNavigation();
 		
 		if (AppGUISettings.IS_RETINA) {
 			handleRetina();
@@ -19,7 +19,7 @@ public class ChairNavContainerController : MonoBehaviour {
 		loadCheckboxTextures();
 	}
 	
-	private void setupRightMenu()
+	private void setupChairNavigation()
 	{
 		int gap = 5;
 		float checkboxHeight = chairCheckBoxPrefab.GetComponent<BoxCollider>().size.x;
@@ -53,13 +53,6 @@ public class ChairNavContainerController : MonoBehaviour {
 		}
 	}
 	
-	private void loadCheckboxTextures()
-	{
-		foreach (HMChairCheckboxController cbController in gameObject.GetComponentsInChildren<HMChairCheckboxController>()) {
-			cbController.loadContent();
-		}
-	}
-	
 	private void handleRetina ()
 	{
 		foreach (GameObject checkbox in gameObject.Children()) {
@@ -72,5 +65,10 @@ public class ChairNavContainerController : MonoBehaviour {
 		}
 	}
 	
-	
+	private void loadCheckboxTextures()
+	{
+		foreach (HMChairCheckboxController cb in gameObject.GetComponentsInChildren<HMChairCheckboxController>()) {
+			cb.loadCheckBoxTexture();
+		}
+	}
 }
